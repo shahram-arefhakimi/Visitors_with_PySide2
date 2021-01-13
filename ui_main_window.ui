@@ -48,7 +48,7 @@
      </rect>
     </property>
     <property name="text">
-     <string></string>
+     <string/>
     </property>
    </widget>
   </widget>
@@ -149,6 +149,31 @@
      <string>نام و نام خانوادگی</string>
     </property>
    </column>
+  </widget>
+  <widget class="QCheckBox" name="ChBoxFaceDetect">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>540</y>
+     <width>101</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Microsoft Sans Serif</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="tabletTracking">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>تشخیص چهره</string>
+   </property>
   </widget>
  </widget>
  <resources/>

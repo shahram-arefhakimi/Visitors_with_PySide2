@@ -68,6 +68,15 @@ class Ui_Form(object):
         font1.setBold(True)
         font1.setWeight(75)
         self.tableView.setFont(font1)
+        self.ChBoxFaceDetect = QCheckBox(Form)
+        self.ChBoxFaceDetect.setObjectName(u"ChBoxFaceDetect")
+        self.ChBoxFaceDetect.setEnabled(True)
+        self.ChBoxFaceDetect.setGeometry(QRect(190, 540, 101, 21))
+        font2 = QFont()
+        font2.setFamily(u"Microsoft Sans Serif")
+        font2.setPointSize(10)
+        self.ChBoxFaceDetect.setFont(font2)
+        self.ChBoxFaceDetect.setTabletTracking(False)
 
         self.retranslateUi(Form)
 
@@ -89,5 +98,6 @@ class Ui_Form(object):
         ___qtablewidgetitem2.setText(QCoreApplication.translate("Form", u"\u0632\u0645\u0627\u0646", None));
         ___qtablewidgetitem3 = self.tableView.horizontalHeaderItem(3)
         ___qtablewidgetitem3.setText(QCoreApplication.translate("Form", u"\u0646\u0627\u0645 \u0648 \u0646\u0627\u0645 \u062e\u0627\u0646\u0648\u0627\u062f\u06af\u06cc", None));
+        self.ChBoxFaceDetect.setText(QCoreApplication.translate("Form", u"\u062a\u0634\u062e\u06cc\u0635 \u0686\u0647\u0631\u0647", None))
     # retranslateUi
 
