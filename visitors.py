@@ -85,14 +85,12 @@ class MainWindow(QWidget):
 
         # Faces Detected
     def FaceDetected(self,frame):
-        gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-        face_rects = self.face_cascade.detectMultiScale(gray, 1.3, 5)    
-        for (x, y, w, h) in face_rects:
-            cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
-        # locations = face_recognition.face_locations(frame, model=MODEL)
-        # Frame_encodes= face_recognition.face_encodings(frame,locations)
-        # now_faces=zip(Frame_encodes,locations)
-        # if (self.CompareLastFrames(now_faces,self.lastencode)):
+        # gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+        # face_rects = self.face_cascade.detectMultiScale(gray, 1.3, 5)    
+        # for (x, y, w, h) in face_rects:
+        
+        locations = face_recognition.face_locations(frame, model=self.MODEL)
+        # if (self.IsDuplicateFrame(frame,locations)):
         #     pass
         #     #for all detected faces
         # else:
