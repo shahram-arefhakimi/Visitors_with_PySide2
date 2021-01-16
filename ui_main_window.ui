@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1008</width>
-    <height>578</height>
+    <height>588</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,9 +16,9 @@
   <widget class="QPushButton" name="control_bt">
    <property name="geometry">
     <rect>
-     <x>90</x>
-     <y>540</y>
-     <width>75</width>
+     <x>97</x>
+     <y>550</y>
+     <width>72</width>
      <height>23</height>
     </rect>
    </property>
@@ -55,9 +55,9 @@
   <widget class="QPushButton" name="BtnExit">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>540</y>
-     <width>75</width>
+     <x>20</x>
+     <y>550</y>
+     <width>72</width>
      <height>23</height>
     </rect>
    </property>
@@ -95,7 +95,7 @@
    <property name="geometry">
     <rect>
      <x>620</x>
-     <y>50</y>
+     <y>48</y>
      <width>381</width>
      <height>331</height>
     </rect>
@@ -118,7 +118,7 @@
    <property name="geometry">
     <rect>
      <x>620</x>
-     <y>390</y>
+     <y>386</y>
      <width>381</width>
      <height>131</height>
     </rect>
@@ -156,10 +156,10 @@
    </property>
    <property name="geometry">
     <rect>
-     <x>190</x>
-     <y>540</y>
-     <width>101</width>
-     <height>21</height>
+     <x>264</x>
+     <y>552</y>
+     <width>92</width>
+     <height>20</height>
     </rect>
    </property>
    <property name="font">
@@ -171,8 +171,69 @@
    <property name="tabletTracking">
     <bool>false</bool>
    </property>
+   <property name="layoutDirection">
+    <enum>Qt::RightToLeft</enum>
+   </property>
    <property name="text">
     <string>تشخیص چهره</string>
+   </property>
+  </widget>
+  <widget class="QGroupBox" name="groupBox">
+   <property name="geometry">
+    <rect>
+     <x>370</x>
+     <y>530</y>
+     <width>231</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::RightToLeft</enum>
+   </property>
+   <property name="title">
+    <string>دقت تشخیص</string>
+   </property>
+   <widget class="QRadioButton" name="cnn">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>20</y>
+      <width>111</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>(CNN) دقت زیاد</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="hog">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>20</y>
+      <width>91</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>(HOG) دقت کم</string>
+    </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QPushButton" name="BtnPersons">
+   <property name="geometry">
+    <rect>
+     <x>620</x>
+     <y>550</y>
+     <width>71</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>اشخاص</string>
    </property>
   </widget>
  </widget>

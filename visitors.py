@@ -14,30 +14,24 @@ height = 480
 width = 640
 channel = 3
 step = channel * width
-MODEL = "hog"
-
+# MODEL = "hog"
+  
 class MainWindow(QWidget):
     def __init__(self):
     
         super().__init__()
         self.ui = Ui_Form()
         self.ui.setupUi(self)
-        
+        self.MODEL = "hog"
         self.lastFrame=[]
         self.lastencode=[]
-        self.lastlocations=[]
-                
+        self.lastlocations=[]       
         # create a timer for clock
         self.timerClock = QTimer() 
         self.timerClock.timeout.connect(self.showTime) 
         self.timerClock.start(1000)
         # create exit button
         self.ui.BtnExit.clicked.connect(self.close_app)
-        self.face_cascade = cv2.CascadeClassifier('haarcascade/haarcascade_frontalface_alt.xml')
-        if self.face_cascade.empty():
-            QMessageBox.information(self, "Error Loading cascade classifier" , "Unable to load the face	cascade classifier xml file")
-            sys.exit()
-
         # load video 
         # create a timer
         self.timer = QTimer()
@@ -45,15 +39,24 @@ class MainWindow(QWidget):
         self.timer.timeout.connect(self.ShowVideos)
         # set control_bt callback clicked  function
         self.ui.control_bt.clicked.connect(self.controlTimer)
-        self.ui.BtnExit.clicked.connect(self.close_app)
+        self.ui.hog.clicked.connect(self.onClickedhog)
+        self.ui.cnn.clicked.connect(self.onClickedcnn)
         
-        
+
+
+    def onClickedcnn(self):
+        self.MODEL= 'cnn'
+
+       
+    def onClickedhog(self):
+        self.MODEL = 'hog'
 
         #show clock top right
     def showTime(self): 
         current_time = QTime.currentTime() 
         label_time = current_time.toString('hh:mm:ss') 
         self.ui.LblTime.setText(label_time)
+     
 
 
     def close_app(self):
@@ -81,8 +84,12 @@ class MainWindow(QWidget):
         # resize frame image
         frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
         image = qimage2ndarray.array2qimage(frame)
-        self.ui.image_label.setPixmap(QPixmap.fromImage(image))    
-
+        self.ui.image_label.setPixmap(QPixmap.fromImage(image)) 
+          
+    
+    def IsDuplicateFrame(self,frame,locations):
+        Frame_encodes= face_recognition.face_encodings(frame,locations)        
+        
         # Faces Detected
     def FaceDetected(self,frame):
         # gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
@@ -92,11 +99,10 @@ class MainWindow(QWidget):
         locations = face_recognition.face_locations(frame, model=self.MODEL)
         # if (self.IsDuplicateFrame(frame,locations)):
         #     pass
-        #     #for all detected faces
         # else:
-        #     self.lastencode = Frame_encodes
-        # for (y1, x2, y2, x1) in locations:
-        #     cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 255, 0), 2)
+        #     self.lastencode = frame
+        for (y1, x2, y2, x1) in locations:
+            cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 255, 0), 2)
             
        
 

@@ -11,16 +11,25 @@
 from PySide2.QtCore import *
 from PySide2.QtGui import *
 from PySide2.QtWidgets import *
+from PersonFrm import Ui_FrmPerson
 
 
 class Ui_Form(object):
+    def OpenPersonWindow(self):
+        self.frmperson = QMainWindow()
+        self.uiPerson = Ui_FrmPerson()
+        self.uiPerson.setupUi(self.frmperson)
+        self.frmperson.show()
+        
+
     def setupUi(self, Form):
         if not Form.objectName():
             Form.setObjectName(u"Form")
-        Form.resize(1008, 578)
+
+        Form.resize(1008, 588)
         self.control_bt = QPushButton(Form)
         self.control_bt.setObjectName(u"control_bt")
-        self.control_bt.setGeometry(QRect(90, 540, 75, 23))
+        self.control_bt.setGeometry(QRect(97, 550, 72, 23))
         self.VideoBox = QGroupBox(Form)
         self.VideoBox.setObjectName(u"VideoBox")
         self.VideoBox.setGeometry(QRect(10, 40, 601, 481))
@@ -29,7 +38,7 @@ class Ui_Form(object):
         self.image_label.setGeometry(QRect(0, 20, 601, 461))
         self.BtnExit = QPushButton(Form)
         self.BtnExit.setObjectName(u"BtnExit")
-        self.BtnExit.setGeometry(QRect(10, 540, 75, 23))
+        self.BtnExit.setGeometry(QRect(20, 550, 72, 23))
         self.LblTime = QLabel(Form)
         self.LblTime.setObjectName(u"LblTime")
         self.LblTime.setGeometry(QRect(890, 0, 111, 31))
@@ -45,7 +54,7 @@ class Ui_Form(object):
         self.LblTime.setFont(font)
         self.scrollArea = QScrollArea(Form)
         self.scrollArea.setObjectName(u"scrollArea")
-        self.scrollArea.setGeometry(QRect(620, 50, 381, 331))
+        self.scrollArea.setGeometry(QRect(620, 48, 381, 331))
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
@@ -63,7 +72,7 @@ class Ui_Form(object):
         __qtablewidgetitem3 = QTableWidgetItem()
         self.tableView.setHorizontalHeaderItem(3, __qtablewidgetitem3)
         self.tableView.setObjectName(u"tableView")
-        self.tableView.setGeometry(QRect(620, 390, 381, 131))
+        self.tableView.setGeometry(QRect(620, 386, 381, 131))
         font1 = QFont()
         font1.setBold(True)
         font1.setWeight(75)
@@ -71,12 +80,28 @@ class Ui_Form(object):
         self.ChBoxFaceDetect = QCheckBox(Form)
         self.ChBoxFaceDetect.setObjectName(u"ChBoxFaceDetect")
         self.ChBoxFaceDetect.setEnabled(True)
-        self.ChBoxFaceDetect.setGeometry(QRect(190, 540, 101, 21))
+        self.ChBoxFaceDetect.setGeometry(QRect(264, 552, 92, 20))
         font2 = QFont()
         font2.setFamily(u"Microsoft Sans Serif")
         font2.setPointSize(10)
         self.ChBoxFaceDetect.setFont(font2)
         self.ChBoxFaceDetect.setTabletTracking(False)
+        self.ChBoxFaceDetect.setLayoutDirection(Qt.RightToLeft)
+        self.groupBox = QGroupBox(Form)
+        self.groupBox.setObjectName(u"groupBox")
+        self.groupBox.setGeometry(QRect(370, 530, 231, 51))
+        self.groupBox.setLayoutDirection(Qt.RightToLeft)
+        self.cnn = QRadioButton(self.groupBox)
+        self.cnn.setObjectName(u"cnn")
+        self.cnn.setGeometry(QRect(0, 20, 111, 21))
+        self.hog = QRadioButton(self.groupBox)
+        self.hog.setObjectName(u"hog")
+        self.hog.setGeometry(QRect(120, 20, 91, 17))
+        self.hog.setChecked(True)
+        self.BtnPersons = QPushButton(Form)
+        self.BtnPersons.setObjectName(u"BtnPersons")
+        self.BtnPersons.setGeometry(QRect(620, 550, 71, 23))
+        self.BtnPersons.clicked.connect(self.OpenPersonWindow)
 
         self.retranslateUi(Form)
 
@@ -99,5 +124,9 @@ class Ui_Form(object):
         ___qtablewidgetitem3 = self.tableView.horizontalHeaderItem(3)
         ___qtablewidgetitem3.setText(QCoreApplication.translate("Form", u"\u0646\u0627\u0645 \u0648 \u0646\u0627\u0645 \u062e\u0627\u0646\u0648\u0627\u062f\u06af\u06cc", None));
         self.ChBoxFaceDetect.setText(QCoreApplication.translate("Form", u"\u062a\u0634\u062e\u06cc\u0635 \u0686\u0647\u0631\u0647", None))
+        self.groupBox.setTitle(QCoreApplication.translate("Form", u"\u062f\u0642\u062a \u062a\u0634\u062e\u06cc\u0635", None))
+        self.cnn.setText(QCoreApplication.translate("Form", u"(CNN) \u062f\u0642\u062a \u0632\u06cc\u0627\u062f", None))
+        self.hog.setText(QCoreApplication.translate("Form", u"(HOG) \u062f\u0642\u062a \u06a9\u0645", None))
+        self.BtnPersons.setText(QCoreApplication.translate("Form", u"\u0627\u0634\u062e\u0627\u0635", None))
     # retranslateUi
 
